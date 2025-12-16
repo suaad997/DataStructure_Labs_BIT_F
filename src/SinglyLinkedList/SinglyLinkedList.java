@@ -53,6 +53,23 @@ public E getLast(){
         return tail.getData();
     }
 
+public E removeLast(){
+    if(isEmpty())return null;
+    E delete=tail.getData();
+    if(head==tail){
+        tail=null;
+        head=null;
+    }
+    else {
+        Node<E>temp=head;
+        while (temp.getNext()!=tail){
+            temp=temp.getNext();
+        } temp.setNext(null);
+        tail=temp;
+    }
+    size--;
+    return delete;
+}
 
 
 
