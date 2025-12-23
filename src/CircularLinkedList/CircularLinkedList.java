@@ -9,31 +9,36 @@ public CircularLinkedList() {
     tail=null;
     size=0;
     }
-
-public void addFirst(E data){
-    if(isEmpty()){
-        Node<E> newNode=new Node(data,null);
-        tail=newNode;
-        newNode.setNext(tail);
-    }
-    else {
-    Node<E> newNode=new Node(data,tail.getNext());
-    tail.setNext(newNode);
-    }
-    
-    size++;
-}
-public void addLast(E data){
-    addFirst(data);
-    tail=tail.getNext();
-}
-
-
-        public int size(){
+public int size(){
         return size;
     }
 public boolean isEmpty(){
         return size()==0;
+    }
+
+  //algorithms
+public void addFirst(E data){
+        if(isEmpty()){
+            Node<E> newNode=new Node(data,null);
+            tail=newNode;
+            newNode.setNext(tail);
+        }
+        else {
+            Node<E> newNode=new Node(data,tail.getNext());
+            tail.setNext(newNode);
+        }
+
+        size++;
+    }
+public void addLast(E data){
+        addFirst(data);
+        tail=tail.getNext();
+    }
+public E getFirst(){
+    return tail.getNext().getData();
+}
+public E getLast(){
+        return tail.getData();
     }
 
 class Node<E>{
