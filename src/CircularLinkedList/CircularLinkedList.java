@@ -40,6 +40,43 @@ public E getFirst(){
 public E getLast(){
         return tail.getData();
     }
+public E removeFirst(){
+ if (isEmpty())return null;
+ E delete =tail.getNext().getData();
+ if (tail==tail.getNext()){
+     tail=null;
+ }
+ else {
+     tail.setNext(tail.getNext().getNext());
+ }
+  size--;
+  return delete;
+}
+public E removeLast(){
+   if (isEmpty())return null;
+   E delete =tail.getData();
+   if (tail==tail.getNext()){
+            tail=null;
+        }
+   else {
+       Node<E>temp=tail.getNext();
+       while (temp.getNext()!=tail){
+           temp=temp.getNext();
+       }temp.setNext(tail.getNext());
+       tail=temp;
+   }
+size--;
+   return delete;
+}
+public void display(){
+    System.out.println("The elements or the list are:");
+    Node<E>temp=tail.getNext();
+    do {
+        System.out.print(temp.getData()+"--->");
+        temp=temp.getNext();
+    }while (temp!=tail.getNext());
+    System.out.println("go first("+temp.getData()+")");
+}
 
 class Node<E>{
         private E data;
