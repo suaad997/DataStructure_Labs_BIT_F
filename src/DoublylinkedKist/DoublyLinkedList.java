@@ -63,6 +63,13 @@ public void dislpay(){
     }
     System.out.println("tail--->null");
 }
+    public void display2(){
+        Node<E>temp=head.getNext();
+        while (temp!=tail){
+            System.out.println(temp.getData());
+            temp=temp.getNext();
+        }
+    }
 
 
 

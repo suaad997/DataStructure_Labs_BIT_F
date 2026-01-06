@@ -82,6 +82,13 @@ public void display(){
     System.out.println("null");
 }
 
+public void display2(){
+        Node<E> temp=head;
+        while (temp!=null){
+            System.out.println(temp.getData());
+            temp=temp.getNext();}
+    }
+
 class Node<E>{
 private E data;
 private Node<E> next;
